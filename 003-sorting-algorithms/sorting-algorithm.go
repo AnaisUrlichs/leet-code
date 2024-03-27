@@ -8,19 +8,19 @@ import (
 
 var nums []int
 
-func mergeSort(nums []int) []int {
-	if len(nums) < 1 {
-		return nums
+func mergeSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
 	}
 
-	mid := len(nums) / 2
-	left := mergeSort(nums[:mid])
-	right := mergeSort(nums[mid:])
+	mid := len(arr) / 2
+	left := mergeSort(arr[:mid])
+	right := mergeSort(arr[mid:])
 
 	return merge(left, right)
 }
 
-func merge(left []int, right []int) []int {
+func merge(left, right []int) []int {
 	result := make([]int, 0, len(left)+len(right))
 	i, j := 0, 0
 
